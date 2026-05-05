@@ -96,6 +96,7 @@ variable "vpc" {
   }))
 }
 ```
+
 - terraform plan deploy модуля vpc
 ```tf
 Terraform used the selected providers to generate the following execution
@@ -194,4 +195,6 @@ Plan: 6 to add, 0 to change, 0 to destroy.
 Note: You didn't use the -out option to save this plan, so Terraform can't
 guarantee to take exactly these actions if you run "terraform apply" now.
 ```
+Скриншот yc console после выполнения apply
+<img width="858" height="316" alt="4" src="https://github.com/user-attachments/assets/55e19695-7934-4257-b4cb-e7b71a5afb94" />
 
