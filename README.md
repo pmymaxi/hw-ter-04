@@ -54,7 +54,7 @@ terraform import 'module.vm_module_external["marketing"].yandex_compute_instance
 Скриншот выполнения command
 <img width="974" height="3022" alt="3" src="https://github.com/user-attachments/assets/81c2e59d-a8d0-49ab-b562-39289dd011b7" />
 
-### Задание 4*
+### Задание 4
 Код модуля vpc так, чтобы он мог создать подсети во всех зонах доступности, переданных в переменной типа list(object) при вызове модуля.
 - main.tf
 ```tf
