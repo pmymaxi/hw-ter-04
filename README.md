@@ -643,5 +643,8 @@ Changes to Outputs:
 Note: You didn't use the -out option to save this plan, so Terraform can't
 guarantee to take exactly these actions if you run "terraform apply" now.
 ```
+- Скриншот результата выполнения проекта в целом
+<img width="1172" height="1257" alt="5" src="https://github.com/user-attachments/assets/daf4670e-ff03-4508-b4fc-9319f3a1a022" />
+
 
 
