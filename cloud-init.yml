@@ -1,0 +1,21 @@
+#cloud-config
+
+users:
+  - name: ${name}
+    groups: ${groups}
+    shell: /bin/bash
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    ssh_authorized_keys:
+      - ${ssh_public}
+
+chpasswd:
+  list: |
+    ${name}:${passwd}
+  expire: false
+      
+package_update: true
+package_upgrade: true
+
+packages:
+  - nginx
+  - curl
