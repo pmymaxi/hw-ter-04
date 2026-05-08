@@ -10,6 +10,4 @@
 
 # own secret vars store.
 personal.auto.tfvars
-passdb.key
-passwd.gen
-passwd.key
+README.md

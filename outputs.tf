@@ -1,8 +1,12 @@
-# Выводим информацию о network and subnet
+ # Выводим информацию о network and subnet
 output "subnet" {
   value = {
     network = module.vpc
     }
+}
+ # Выводим информацию о vp
+output "vpc_cloud_net" {
+  value = var.vpc
 }
 
 # Выводим log файл вывода из yc console
@@ -17,6 +21,7 @@ data "local_file" "cluster_info" {
 }
 # Формируем log файл вывода из yc console
 resource "null_resource" "yc_console_cluster" {
+  count = var.cluster_create ? 1 : 0 
   depends_on = [ module.mdb_mysql_cluster ]
   provisioner "local-exec" {
     command = <<EOT
@@ -37,3 +42,27 @@ resource "null_resource" "yc_console_cluster" {
     always_run = "${timestamp()}"
   }
 }
+
+/*
+#Считываем secret по path in vault для последующего вывода в output
+data "vault_generic_secret" "vault_example"{
+ path = "secret/example"
+}
+
+# Тест вывода пароля из vault
+output "vault_example" {
+ value = "${nonsensitive(data.vault_generic_secret.vault_example.data)}"
+}
+
+# создаем ресурс для отправки сприска паролей key=>value for json в vault
+resource "vault_generic_secret" "example" {
+  path = "secret/my-secret"
+
+  data_json = <<EOT
+{
+  "bd":   "passdb",
+  "user": "passuser"
+}
+EOT
+}
+*/
